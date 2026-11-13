@@ -9,22 +9,19 @@
 <script src="script.js" defer></script>
 </head>
 <body>
-
 <div class="container">
-
 <h1>✨ Anime AI Studio</h1>
 <p class="subtitle">Your Personal Anime Creator</p>
 
 <div class="card">
 <h2>🖼️ Photo to Anime</h2>
-<input type="file" id="photo" accept="image/jpeg,image/png,image/webp">
+<input type="file" id="photo" accept="image/*">
 <img id="preview" style="display:none">
 </div>
 
 <div class="card">
 <h2>✍️ Text to Anime</h2>
-<textarea id="prompt" rows="4"
-placeholder="Describe your anime character..."></textarea>
+<textarea id="prompt" rows="4" placeholder="Describe your anime character..."></textarea>
 </div>
 
 <div class="card">
@@ -33,9 +30,7 @@ placeholder="Describe your anime character..."></textarea>
 </div>
 
 <button onclick="generate()">✨ Generate Anime</button>
-
 <p id="status"></p>
-
 </div>
 </body>
 </html>
