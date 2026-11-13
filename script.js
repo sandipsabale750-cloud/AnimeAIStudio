@@ -8,10 +8,9 @@ photo.addEventListener("change", function () {
 
   if (!file) return;
 
-  if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
-    alert("Please select JPG, PNG or WEBP photo.");
+  if (!file.type.startsWith("image/")) {
+    alert("Please select an image file.");
     photo.value = "";
-    preview.style.display = "none";
     return;
   }
 
@@ -28,6 +27,5 @@ window.generate = function () {
     return;
   }
 
-  status.textContent =
-    "Your input is ready! AI generation service is not connected yet.";
+  status.textContent = "Your input is ready! AI generation service is not connected yet.";
 };
