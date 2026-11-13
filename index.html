@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anime AI Studio</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#100b20;color:white;
+ font-family:Arial,sans-serif;padding:22px;
+}
+.container{max-width:500px;margin:auto}
+h1{text-align:center;color:#d7a5ff}
+.subtitle{text-align:center;color:#c9b8dc}
+.card{
+ background:#211735;padding:18px;
+ border-radius:18px;margin:18px 0;
+ border:1px solid #67418b;
+}
+button{
+ width:100%;padding:15px;margin-top:12px;
+ border:0;border-radius:12px;
+ background:#963ee8;color:white;
+ font-size:16px;font-weight:bold;
+}
+input,textarea{
+ width:100%;padding:13px;margin-top:12px;
+ border-radius:10px;border:1px solid #8053a5;
+ background:#160e25;color:white;
+}
+img{max-width:100%;border-radius:12px;margin-top:12px}
+.note{font-size:13px;color:#d5c4e8;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>✨ Anime AI Studio</h1>
+<p class="subtitle">Your Personal Anime Creator</p>
+
+<div class="card">
+<h3>🖼️ Photo to Anime</h3>
+<input type="file" id="photo" accept="image/*">
+<img id="preview" style="display:none">
+</div>
+
+<div class="card">
+<h3>✍️ Text to Anime</h3>
+<textarea id="prompt" rows="4"
+placeholder="Describe your anime character..."></textarea>
+</div>
+
+<div class="card">
+<h3>🎬 Image to Video</h3>
+<p class="note">Select a photo and describe the animation you want.</p>
+</div>
+
+<button onclick="generate()">✨ Generate Anime</button>
+<p id="status" class="note"></p>
+
+</div>
+<script>
+const photo=document.getElementById('photo');
+const preview=document.getElementById('preview');
+
+photo.addEventListener('change',()=>{
+ const file=photo.files[0];
+ if(file){
+ preview.src=URL.createObjectURL(file);
+ preview.style.display='block';
+ }
+});
+
+function generate(){
+ const prompt=document.getElementById('prompt').value;
+ const file=photo.files[0];
+ if(!file && !prompt.trim()){
+ alert('Please select a photo or enter a prompt!');
+ return;
+ }
+ document.getElementById('status').innerText=
+ 'Your input is ready! Connect an AI generation service to create your anime image or video.';
+}
+</script>
+</body>
+</html>
